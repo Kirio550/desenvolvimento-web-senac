@@ -9,12 +9,15 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import org.springframework.context.annotation.Scope;
 
 /**
  *
  * @author Aluno
  */
+@Scope("view")
 @Entity
+
 public class SolicitacaoContato {
     @Id
     @GeneratedValue        
