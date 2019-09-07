@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:composition template="/principal.xhtml">
+        <ui:define name="titulo">Contato</ui:define>
+        <ui:define name="conteudo">
+            <form>
+                <div class="form-group"/>
+                <div class="col-md-8 mb-5 ">
+                    <label for="Nome">Nome</label>
+                    <input type="Nome" class="form-control" id="InputNome" aria-describedby="NomeHelp" placeholder="insira o nome"/>
+                    <small id="NomeHelp" class="form-text text-muted">O seu nome deve ser maravilhoso</small>
+                </div>
+                <div class="form-group"/>
+                <div class="col-md-8 mb-5">
+                    <label for="Email1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <small id="emailHelp" class="form-text text-muted">Vou guardar segredo sobre o seu Email.</small>
+                </div>
+                <div class="form-group"/>
+                <div class="col-md-8 mb-5">
+                    <label for="Duvida">Duvida</label>
+                    <textarea class="form-control" id="Duvida" rows="3"></textarea>
+                </div>
+
+                <button type="Submit" class="btn btn-outline-dark">Enviar</button>
+            </form>
+        </ui:define>
+    </ui:composition>
+</html>
