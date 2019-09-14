@@ -6,29 +6,36 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 
     <ui:composition template="/principal.xhtml">
-        <ui:define name="titulo">Contato</ui:define>
+        <ui:define name="titulo">Usuario</ui:define>
         <ui:define name="conteudo">
             <h:form>
-                <div class="form-group"/>
+                <h:messages style="list-style-type: none;" 
+                            infoClass="alert alert-success" 
+                            errorClass="alert alert-danger"/>
                 <div class="col-md-8 mb-5 ">
-                    <label for="Usuario">usuario</label>
-                    <h:inputText value="#{usuarioMB.usuario.login}"/>
-                </div>
-                
-                <div class="form-group"/>
+                    <label for="Usuario">Usuario</label>
+                    <h:inputText value="#{usuarioMB.usuario.login}" class="form-control"
+                                 validatorMessage=" Campo Usuario obrigatorio">                     
+                        <f:validateRequired/>
+                    </h:inputText >
+                </div >
+
                 <div class="col-md-8 mb-5">
                     <label for="Senha">senha</label>
-                    <h:inputSecret value="#{usuarioMB.usuario.senha}"/>
-
+                    <h:inputSecret styleClass="form-control" validatorMessage="Campo Senha obrigatorio" 
+                                   value="#{usuarioMB.usuario.senha}">
+                        <f:validateRequired/>
+                    </h:inputSecret>
                 </div>
 
-                <button type="Submit" class="btn btn-outline-dark"
-                        action="#{usuarioMB.salvarUsuario()}"
-                        jsf="h:commandButton" value="Salvar">Salvar</button>
+                <h:commandButton class="btn btn-outline-dark"
+                                 action="#{usuarioMB.salvarUsuario()}"
+                                 value="Salvar"/>
             </h:form>
         </ui:define>
     </ui:composition>
