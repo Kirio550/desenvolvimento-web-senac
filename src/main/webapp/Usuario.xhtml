@@ -24,6 +24,18 @@ and open the template in the editor.
                         <f:validateRequired/>
                     </h:inputText >
                 </div >
+                <div class="form-group"/>
+                    <label>grupo</label>
+                    
+                    <ui:repeat value="#(grupoMB.listaGrupos)"
+                               var="grp"
+                    <br/>
+                    %(grp.nome) <input type="checkbox" />
+                    <br/>
+                    chefe: <input type="checkbox" />
+                    <br/>
+                    secretario: <input type="checkbox" />
+                </div>
 
                 <div class="col-md-8 mb-5">
                     <label for="Senha">senha</label>

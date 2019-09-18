@@ -5,6 +5,8 @@
  */
 package com.github.braully.dws;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +20,34 @@ import org.springframework.stereotype.Component;
 @Scope("view")
 @Component
 public class UsuarioMB {
-    
+
     @Autowired
     UsuarioDAO usuarioDAO;
-    
+
     Usuario usuario = new Usuario();
+    private Object listaGrupos;
 
     public Usuario getUsuario() {
         return usuario;
     }
-    
-    public void salvarUsuario(){
+
+    public void salvarUsuario() {
         usuarioDAO.save(usuario);
-        FacesContext . getCurrentInstance()
-                . addMessage( null , new FacesMessage ("Usuario salvo com sucesso" ));
-        
+        FacesContext.getCurrentInstance()
+                .addMessage(null, new FacesMessage("Usuario salvo com sucesso"));
+
         usuario = new Usuario();
-        
+
+    }
+    List<Grupo> listraGrupos;
+
+    public List<Grupo> getListaGrupos() {
+        if (listaGrupos == null) {
+            listaGrupos = new ArrayList<>() ;
+            for (Grupo g : grupoDAO.findAll()) {
+                listaGrupos.add(g);
+            }
+        }
+        return listaGrupos;
     }
 }
