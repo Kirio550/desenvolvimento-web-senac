@@ -32,6 +32,8 @@ public class UsuarioMB {
     }
 
     public void salvarUsuario() {
+        gruposSelecionados.forEach(k,v) -> {if (v) usuario.adicionaGrupo(k));
+        
         usuarioDAO.save(usuario);
         FacesContext.getCurrentInstance()
                 .addMessage(null, new FacesMessage("Usuario salvo com sucesso"));
@@ -50,4 +52,7 @@ public class UsuarioMB {
         }
         return listaGrupos;
     }
+    Map<grupo, Boolean> gruposSelecionados = new HashMap<>();
+    
+    public Map<grupo, Boolean
 }
